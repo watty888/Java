@@ -1,0 +1,26 @@
+package com.parse_json.parse_json;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.lang.ProcessBuilder.Redirect.Type;
+import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.parse_json.parse_json.MoviesAnalyzer.Movie;
+
+public class App {
+	public static void main( String[] args ) throws IOException {
+		
+		static final Type REVIEW_TYPE = new TypeToken<List<Movie>>() {
+		}.getType();
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new FileReader("one.json"));
+		List<Movie> data = gson.fromJson(reader, Movie.class); // contains the whole reviews list
+		
+		for (Movie m : data) {
+			System.out.println(m);
+		}
+
+}

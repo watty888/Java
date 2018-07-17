@@ -1,0 +1,26 @@
+package com.parse_json.parse_json;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonToken;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args ) throws IOException
+    {
+        
+    	//Gson gs = new Gson();
+	    JsonReader jsonReader = new JsonReader(new FileReader("/Users/watty_/Developer/Java/Projects/Parsing_JSON/one.json"));
+        
+	    
+	    
+    }
+}

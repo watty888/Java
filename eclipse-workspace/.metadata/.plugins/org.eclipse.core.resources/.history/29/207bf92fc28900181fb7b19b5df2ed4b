@@ -1,0 +1,34 @@
+package com.parse_json.parse_json;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.lang.ProcessBuilder.Redirect.Type;
+import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonToken;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args ) throws FileNotFoundException {
+    
+        
+	    Gson gson = new Gson();
+	    JsonReader reader = new JsonReader(new FileReader("one.json"));  
+	    String json = reader.toString();
+	    
+	    //MoviesAnalyzer mv = new MoviesAnalyzer();
+	    
+	    MoviesAnalyzer.Movie[] ma = reader.fromJson()
+	    System.out.println(json);
+	    
+    }
+}

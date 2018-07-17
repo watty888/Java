@@ -1,0 +1,37 @@
+package com.parse_json.parse_json;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.lang.ProcessBuilder.Redirect.Type;
+import java.util.List;
+
+/**
+ * Hello world!
+ *
+ */
+public class App {
+	public static void main( String[] args ) throws IOException {
+		String json = null;
+		try {
+			FileInputStream fileIn = new FileInputStream("one.json");
+			ObjectInputStream in = new ObjectInputStream(fileIn);
+			json = (String) in.readObject();
+			in.close();
+			fileIn.close();
+		} catch (IOException i) {
+			i.printStackTrace();
+			return;
+		} catch (ClassNotFoundException c) {
+			System.out.println("Employee class not found");
+			c.printStackTrace();
+			return;
+		}
+		
+		
+		System.out.println(json);
+	}
+
+}

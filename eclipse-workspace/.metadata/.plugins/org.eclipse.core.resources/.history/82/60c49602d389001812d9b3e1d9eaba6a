@@ -1,0 +1,22 @@
+package com.parse_json.parse_json;
+
+import java.io.FileReader;
+import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.stream.JsonReader;
+import com.parse_json.parse_json.MoviesAnalyzer.Movie;
+
+public class App {
+	public static void main( String[] args ) throws IOException {
+		
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new FileReader("one.json"));
+		Movie[] data = gson.fromJson(reader, Movie.class); // contains the whole reviews list
+		
+		for (int i = 0; i < data.length; ++i) {
+			System.out.println(data.toString());
+		}
+	}
+
+}
